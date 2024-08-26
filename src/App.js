@@ -28,6 +28,7 @@ class App extends Component {
       _title = this.state.contents[0].title;
       _desc = this.state.contents[0].desc;
     }
+    console.log('render',this);
     return (
       <div className="App">
         {/*<Subject title={this.state.Subject.title} sub={this.state.Subject.sub}></Subject>*/}
@@ -35,7 +36,11 @@ class App extends Component {
           <h1><a href="/" onClick={function(e){
             console.log(e);
             e.preventDefault();
-          }}>{this.state.Subject.title}</a></h1>
+            // this.state.mode = 'welcome';
+            this.setState({
+              mode:'welcome'
+            });
+          }.bind(this)}>{this.state.Subject.title}</a></h1>
           {this.state.Subject.sub}
         </header>
         <Nav data={this.state.contents}></Nav>
