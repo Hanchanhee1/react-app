@@ -1,8 +1,18 @@
 import React, { Component } from 'react';
 
 class Nav extends Component {
+  shouldComponentUpdate(newProps, newState){
+    console.log('===>Nav render shouldComponentUpdate'
+      ,newProps.data
+      ,this.props.data
+    );
+    if(this.props.data === newProps.data){
+      return false;
+    }
+    return true;
+  }
     render() {
-      console.log('Nav render')
+      console.log('===>Nav render')
       var lists = [];
       var data = this.props.data;
       var i = 0;
